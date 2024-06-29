@@ -27,10 +27,11 @@
       <div class="register-link">
         <p>Dont have an account? <a href="/signup">Register</a></p>
       </div>
-      <% if(msg.pass != 'false'){ %>
+      <% if(msg){ %>
         <div class="register-link">
-          <p>User not exisr !! <a href="/login">Try Again</a></p>
+          <p>User not exist !! <a href="/login">Try Again</a></p>
         </div>
+        <% msg=false %>
       <% } %>
       
     </form>
