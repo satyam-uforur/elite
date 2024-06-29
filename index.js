@@ -14,6 +14,7 @@ app.set("view engine", "ejs");
 
 
 let msg=false;
+let msg1=false;
 app.get("/", (req, res) => {
     res.render("index");
 });
@@ -24,7 +25,8 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/signup", (req, res) => {
-    res.render("signup");
+    msg1=false
+    res.render("signup",{msg1});
 });
 
 app.get("/home", (req, res) => {
@@ -44,7 +46,8 @@ app.post("/signup", async (req, res) => {
     const existingUser = await collection.findOne({ name: data.name });
 
     if (existingUser) {
-        res.render('wrong');
+        msg1=true;
+        res.render('signup',{msg1});
     } 
     else {
         collection.insertMany(data);
