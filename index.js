@@ -13,15 +13,13 @@ app.use(express.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 
 
-let msg={
-    pass:"false",
-    det:"false"
-}
+let msg=false;
 app.get("/", (req, res) => {
     res.render("index");
 });
 
 app.get("/login", (req, res) => {
+    msg=false
     res.render("login",{msg});
 });
 
@@ -58,6 +56,10 @@ app.post("/signup", async (req, res) => {
 
 app.post("/login", async (req, res) => {
     try {
+        let msg={
+            pass:"false",
+            det:"false"
+        }
         const check = await collection.findOne({ name: req.body.username });
         console.log(check.password);
         if (!check) {
@@ -77,7 +79,7 @@ app.post("/login", async (req, res) => {
             }
         console.log(isPasswordMatch());
         if (!isPasswordMatch()) {
-            msg.pass='true'
+            msg=true
             res.render("login",{msg});
         }
         else {
@@ -85,7 +87,7 @@ app.post("/login", async (req, res) => {
         }
     }
     catch {
-        msg.pass='true'
+        msg=true
         res.render("login",{msg});
     }
 });
