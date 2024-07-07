@@ -13,21 +13,19 @@
 </head>
 <body>
 
-
-	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
 			<i class='bx bx-body' ></i>
 			<span class="text">[̲̅E][̲̅l][̲̅i][̲̅t][̲̅e]</span>
 		</a>
 		<ul class="side-menu top">
-			<li class="active">
+			<li>
 				<a href="/home">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
-			<li>
+			<li class="active">
 				<a href="/store">
 					<i class='bx bxs-shopping-bag-alt' ></i>
 					<span class="text">My Store</span>
@@ -101,7 +99,7 @@
 			<i class='bx bx-x' onclick="cancel(`popup-acc`)"></i>
 			</div>
 			<div id="user-account">
-				<h5>Username : <%= combcheck[0].name%></h5>
+				<h5>Username : <%= check.name%></h5>
 				<h5><button class="exe1" onclick="">Change Password</button></h5>
 			</div>
 			
@@ -124,10 +122,10 @@
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1><%= combcheck[0].name%></h1>
+					<h1><%= check.name%></h1>
 					<ul class="breadcrumb">
 						<li>
-							<a href="#">Dashboard</a>
+							<a href="#">Store</a>
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
@@ -141,71 +139,11 @@
 				</a>
 			</div>
 			
-			<ul class="box-info">
-				<li>
-					<i class='bx bx-dumbbell' ></i>
-					<span class="text">
-						<h3>Beginer</h3>
-						<p>Mode</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-calendar-check' ></i>
-					<span class="text">
-						<h3>Execise</h3>
-						<p><button class="exe1"><a href="Exercise.html"> here </a></button></p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-dollar-circle' ></i>
-					<span class="text">
-						<h3>$2543</h3>
-						<p>Total Purchased</p>
-					</span>
-				</li>
-			</ul>
-
-
-			<div class="table-data">
+			<div id="cosoon">
 				
-				<div class="todo">
-					<div class="container">
-						<h1>Todo List</h1>
-						<div class="input-container">
-						  <button value="Chest" class="1">Chest</button>
-						  <button value="Shoulder" class="2">Shoulder</button>
-						  <button value="Biscep">Bisceps</button>
-						  <button value="Triceps">Triceps</button>
-						  <button value="Back">Back</button>
-						  <button value="Leg">Leg</button>
-						  
-						</div>
-						<div class="filters">
-						  <div class="filter" data-filter="completed">Complete</div>
-						  <div class="filter" data-filter="pending">Incomplete</div>
-						  <div class="delete-all">Delete All</div>
-						</div>
-						<div class="todos-container">
-						  <ul class="todos"></ul>
-						  <img class="empty-image" src="./empty.png">
-						</div>
-					</div>
-				</div>
-				<div class="order">
-					<div class="head">
-						<h3>Recent Users</h3>
-						<i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<div>
-						<% for(let i of combcheck){ %>
-							<ul>
-						<li style="background-color:#3b3a3a69; color:black; border-radius:6px;"><h3 style="margin-top: 6px; margin-left:6px"><%= i.name%></h3></li>
-							</ul>
-						<% } %>
+				<h2>Comming soon</h2>
+			</div>
 
-					</div>
-				</div>
 		</main>
 		<!-- MAIN -->
 	</section>
@@ -289,110 +227,8 @@
 			} else {
 				document.body.classList.remove('dark');
 			}
-		})		
-
-		const input = document.querySelectorAll("button");
-		console.log(input);
-		const addButton = document.querySelector(".add-button");
-		input.forEach((item)=>{
-			
-			console.log(item.className);
-			item.addEventListener("click", () => {
-				let todo = item.value;
-				console.log(todo);
-				if (!todo) {
-				  return;
-				}
-				addTodo(todo);
-			  });
-		
 		})
-		
-const todosHtml = document.querySelector(".todos");
-const emptyImage = document.querySelector(".empty-image");
-let todosJson = JSON.parse(localStorage.getItem("todos")) || [];
-const deleteAllButton = document.querySelector(".delete-all");
-const filters = document.querySelectorAll(".filter");
-let filter = '';
-
-showTodos();
-
-function getTodoHtml(todo, index) {
-  if (filter && filter != todo.status) {
-    return '';
-  }
-  let checked = todo.status == "completed" ? "checked" : "";
-  return /* html */ `
-    <li class="todo">
-      <label for="${index}">
-        <input id="${index}" onclick="updateStatus(this)" type="checkbox" ${checked}>
-        <span class="${checked}">${todo.name}</span>
-      </label>
-      <button class="delete-btn" data-index="${index}" onclick="remove(this)"><i class="fa fa-times"></i></button>
-    </li>
-  `; 
-}
-
-function showTodos() {
-  if (todosJson.length == 0) {
-    todosHtml.innerHTML = '';
-    emptyImage.style.display = 'block';
-  } else {
-    todosHtml.innerHTML = todosJson.map(getTodoHtml).join('');
-    emptyImage.style.display = 'none';
-  }
-}
-
-function addTodo(todo)  {
- 
-  todosJson.unshift({ name: todo, status: "pending" });
-  localStorage.setItem("todos", JSON.stringify(todosJson));
-  showTodos();
-}
-
-function updateStatus(todo) {
-  let todoName = todo.parentElement.lastElementChild;
-  if (todo.checked) {
-    todoName.classList.add("checked");
-    todosJson[todo.id].status = "completed";
-  } else {
-    todoName.classList.remove("checked");
-    todosJson[todo.id].status = "pending";
-  }
-  localStorage.setItem("todos", JSON.stringify(todosJson));
-}
-
-function remove(todo) {
-  const index = todo.dataset.index;
-  todosJson.splice(index, 1);
-  showTodos();
-  localStorage.setItem("todos", JSON.stringify(todosJson));
-}
-
-filters.forEach(function (el) {
-  el.addEventListener("click", (e) => {
-    if (el.classList.contains('active')) {
-      el.classList.remove('active');
-      filter = '';
-    } else {
-      filters.forEach(tag => tag.classList.remove('active'));
-      el.classList.add('active');
-      filter = e.target.dataset.filter;
-    }
-    showTodos();
-  });
-});
-
-deleteAllButton.addEventListener("click", () => {
-  todosJson = [];
-  localStorage.setItem("todos", JSON.stringify(todosJson));
-  showTodos();
-});
-
-// execises
-let y=document.getElementById('popup')
-	
-		
+			
 function popup(x){
 	y=document.getElementById(x)		
 	y.classList.add('popup-op')
@@ -407,44 +243,7 @@ function cancel(va){
 	console.log(y.className)
 			
 			
-}
-function cancel1(){
-	let vid=document.getElementById('vid')
-	document.getElementById('exname1').innerHTML=`
-	<div class='popup1' id='pop'>
-			
-	</div>
-	`
-			
-			
-}	
-	
-function video(x){
-			
-			
-	let vid=document.getElementById('vid')
-	document.getElementById('exname1').innerHTML=`
-	<div class='popup1 popup1-op' id='pop'>
-	${x}
-	<div class='filter1'>
-	<i class='bx bx-play s5' onclick='vid.play()'></i>
-	<i class='bx bx-pause s5' onclick='vid.pause()'></i>
-	<i class='bx bx-x s5' onclick='cancel1()'></i>
-			
-	</div>
-	</div>
-	`
-			
-}
-function change(jum)
-{
-	console.log(jum)
-	document.getElementById(jum).style.backgroundColor = "#00ff00";
-	document.getElementById(jum).style.color = "#000000";
-}
-
-
-
+}		
 	</script>
 </body>
 </html>

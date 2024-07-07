@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="stylehome.css">
+
+	<title>Elite | satyam</title>
+</head>
+<body>
+<div class="contain-exe">
+	<div class="body">
+		
+	<table>
+		
+		<tr>
+			<th><button class="exe" id="Chest" onclick="popup(id)">Chest</button></th>
+			<th><button class="exe" id="Shoulder" onclick="popup(id)">Shoulder</button></th>
+			<th><Button class="exe" id="Biceps" onclick="popup(id)">Biceps</Button></th>
+		  </tr>
+		  <tr>
+			<td><button class="exe" id="Triceps" onclick="popup(id)">Triceps</button></td>
+			<td><button class="exe" id="Back" onclick="popup(id)">Back</button></td>
+			<td><button class="exe" id="Leg" onclick="popup(id)">Leg</button></td>
+		  </tr>
+	</table>
+	
+	</div>
+	<div class="popup" id="popup">
+		<div class="poph">
+		<h3 id="exname"></h3>
+		<i class='bx bx-x' onclick="cancel(y)"></i>
+		</div>
+		
+		<button class="exe1" id="<video src='exe/vid.mp4' id='vid' autoplay loop width='400px' height='400px'></video>" alt="" onclick="video(id),change(id)">exe</button>
+		<button class="exe1" id="<video src='exe/vid.mp4' id='vid' autoplay loop width='400px' height='400px'></video>" onclick="video(id),change(id)">exe</button>
+		<button class="exe1" id="<video src='exe/vid.mp4' id='vid' autoplay loop width='400px' height='400px'></video>" onclick="video(id),change(id)">exe</button>
+		<button class="exe1" id="<video src='exe/vid.mp4' id='vid' autoplay loop width='400px' height='400px'></video>" onclick="video(id),change(id)">exe</button>
+		<button class="exe1" id="<video src='exe/vid.mp4' id='vid' autoplay loop width='400px' height='400px'></video>" onclick="video(id),change(id)">exe</button>
+		<button class="exe1" id="<video src='exe/vid.mp4' id='vid' autoplay loop width='400px' height='400px'></video>" onclick="video(id),change(id)">exe</button>
+		<button class="exe1" id="<video src='exe/vid.mp4' id='vid' autoplay loop width='400px' height='400px'></video>" onclick="video(id),change(id)">exe</button>	
+		
+
+
+	</div>
+	
+	<div class="poph">
+		<div id="exname1"></div>
+			
+	</div>
+		
+		
+
+	
+</div>
+	  
+
+<script>
+		let y=document.getElementById('popup')
+	
+		
+		function popup(x){
+			
+			y.classList.add('popup-op')
+			document.getElementById('exname').innerHTML=`${x}`
+			console.log(y.className)
+			
+		}
+		function cancel(va){
+		
+			y.classList.remove('popup-op')
+			
+			console.log(y.className)
+			
+			
+		}
+		function cancel1(){
+			let vid=document.getElementById('vid')
+			document.getElementById('exname1').innerHTML=`
+			<div class='popup1' id='pop'>
+			
+			</div>
+			`
+			
+			
+		}
+		function video(x){
+			
+			
+			let vid=document.getElementById('vid')
+			document.getElementById('exname1').innerHTML=`
+			<div class='popup1 popup1-op' id='pop'>
+			${x}
+			<div class='filter1'>
+			<i class='bx bx-play s5' onclick='vid.play()'></i>
+			<i class='bx bx-pause s5' onclick='vid.pause()'></i>
+			<i class='bx bx-x s5' onclick='cancel1()'></i>
+			
+			</div>
+			</div>
+			`
+			
+		}
+	function change(jum)
+	{
+		console.log(jum)
+		document.getElementById(jum).style.backgroundColor = "#00ff00";
+		document.getElementById(jum).style.color = "#000000";
+	}
+	</script>
+</body>
+</html>

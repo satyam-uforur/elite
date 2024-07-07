@@ -4,21 +4,75 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	color: white;
+	color: var(--font1);
+	font-family: var(--lato);
+	
 }
 
 a {
 	text-decoration: none;
 }
+.con_in_field{
+	display: flex;
+	padding: 5px 10px 5px;
+}
+input#nameco {
+    margin-right: 88px;
+}
+.cont_box{
+	margin-top: 120px;
+	margin-bottom: 4px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	color: var(--font1);
 
+	
+}
+::placeholder{
+	color: var(--font1);
+}
+#comsoon{
+	background-color: var(--light);
+	
+}
+.butco{
+
+	
+	margin-top: 5px;
+	background-color: transparent;
+	display: flex;
+	color: var(--font1);
+	
+}
+.con_in_area{
+	
+	background-color: transparent;
+	display: flex;
+	color: var(--font1);
+	
+
+}
+
+.item{
+	background-color: transparent;
+	
+	border: 2px solid var(--font1);
+	border-radius: 4px;
+}
 li {
 	list-style: none;
 }
-
+h1{
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 :root {
 	--poppins: 'Poppins', sans-serif;
 	--lato: 'Lato', sans-serif;
-
+	--font1:white;
+	--font2:rgb(179, 175, 175);
 	--light: #302f2f6f;
 	--blue: #3C91E6;
 	--light-blue: #CFE8FF;
@@ -37,9 +91,10 @@ html {
 }
 
 body.dark {
-	--light: #0C0C1E;
+	--light: #bdbdc198;
 	--grey: #060714;
-	--dark: #FBFBFB;
+	--dark: #090909;
+	--font1: var(--dark);
 }
 
 body {
@@ -48,9 +103,21 @@ body {
 }
 
 
+h4{
+	color: var(--font1);
+    text-align: center;
+    margin-bottom: 36px;
+}
 
-
-
+/* account */
+#popup-acc{
+	left: 625px;
+	top:80px;
+}
+#popup-not{
+	left: 525px;
+	top:80px;
+}
 /* SIDEBAR */
 #sidebar {
 	position: fixed;
@@ -77,7 +144,7 @@ body {
 	height: 56px;
 	display: flex;
 	align-items: center;
-	color: var(--blue);
+	color: var(--dark);
 	position: sticky;
 	top: 0;
 	left: 0;
@@ -245,7 +312,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	background: var(--blue);
-	color: var(--light);
+	
 	font-size: 18px;
 	border: none;
 	outline: none;
@@ -326,7 +393,7 @@ body {
 	font-size: 36px;
 	font-weight: 600;
 	margin-bottom: 10px;
-	color: var(--dark);
+	color: var(--dark-grey);
 }
 #content main .head-title .left .breadcrumb {
 	display: flex;
@@ -398,7 +465,7 @@ body {
 #content main .box-info li .text h3 {
 	font-size: 24px;
 	font-weight: 600;
-	color: whitesmoke;
+	color: var(--font1);
 }
 #content main .box-info li .text p {
 	color: whitesmoke;	
@@ -438,8 +505,8 @@ body {
 }
 
 #content main .table-data .order {
-	flex-grow: 1;
-	flex-basis: 500px;
+	
+	flex-basis: 400px;
 }
 #content main .table-data .order table {
 	width: 100%;
@@ -487,17 +554,14 @@ body {
 }
 
 
-#content main .table-data .todo {
-	flex-grow: 1;
-	flex-basis: 300px;
-}
+
 #content main .table-data .todo .todo-list {
 	width: 100%;
 }
 #content main .table-data .todo .todo-list li {
 	width: 100%;
 	margin-bottom: 16px;
-	background: var(--grey);
+
 	border-radius: 10px;
 	padding: 14px 20px;
 	display: flex;
@@ -590,4 +654,454 @@ body {
 	#content main .table-data .todo .todo-list {
 		min-width: 420px;
 	}
+}
+
+/* todo*/
+
+
+
+.input-container button {
+    
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #eee;
+    
+}
+.input-container button:hover {
+    
+    background-color: whitesmoke;
+    border-radius: 10%;
+    border: none;
+    cursor: pointer;
+    color: #000000;
+    
+}
+.container {
+  width: 400px;
+  height: auto;
+  min-height: 400px;
+  padding: 30px;
+  background: transparent;
+  border: 2px solid #ffffffa1;
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
+}
+
+h1 {
+  color: #eee;
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.todo-input {
+  flex: 1;
+  outline: none;
+  padding: 10px 10px 10px 20px;
+  background-color: transparent;
+  border: 2px solid #fffffff5;
+  border-radius: 30px;
+  color: #eee;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.todo-input::placeholder {
+  color: #bfbfbf;
+}
+
+.add-button {
+  border: none;
+  outline: none;
+  background: #e6b7eca1;
+  color: #fff;
+  font-size: 35px;
+  cursor: pointer;
+  border-radius: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.empty-image {
+  align-self: center;
+  width: 20%;
+  margin: 40%;
+  justify-content: center;
+}
+
+.todo {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #463c7b;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px 12px;
+  
+  transition: all 0.2s ease;
+}
+
+.todo:first-child {
+  margin-top: 0;
+}
+
+.todo:last-child {
+  margin-bottom: 0;
+}
+
+.todo:hover {
+  background-color:#b7b4b8a1;
+}
+
+.todo label {
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  color: #eee;
+}
+
+.todo span {
+  padding-left: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.todo span::before {
+  content: "";
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  margin-left: -30px;
+  border-radius: 100px;
+  border: 2px solid #ffffffa1;
+}
+
+input[type='checkbox'] {
+  visibility: hidden;
+}
+
+input:checked + span {
+  text-decoration: line-through
+}
+
+.todo:hover input:checked + span::before, input:checked + span::before {
+  background: url(./check.svg) 50% 50% no-repeat #09bb21;
+  border-color: #09bb21;
+}
+
+.todo:hover span::before {
+  border-color: #eee;
+}
+
+.todo .delete-btn  {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #eee;
+  font-size: 24px;
+}
+
+.todos-container  {
+  height: 300px;
+  overflow: overlay;
+}
+
+.todos-container::-webkit-scrollbar-track  {
+  background: rgb(247, 247, 247);
+  border-radius: 20px
+}
+
+.todos-container::-webkit-scrollbar  {
+  width: 0;
+}
+
+.todos-container:hover::-webkit-scrollbar  {
+  width: 7px;
+}
+
+.todos-container::-webkit-scrollbar-thumb  {
+  background: #d5d5d5;
+  border-radius: 20px;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.filter {
+  color: #eee;
+  padding: 5px 1px;
+
+  border-radius: 100px;
+  border: 2px solid #fcfcfceb;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.filter.active, .filter:hover {
+  background-color: #aca9aca1;
+}
+
+.delete-all {
+  display: flex;
+  color: #eee;
+  padding: 7px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-all:hover {
+  border-radius: 5px;
+  background-color: #efefefa1;
+}
+
+
+/* execises*/
+
+.exe {
+	background-color: transparent;
+	width: 220px;
+	height: 220px;
+	margin: 20px;
+	border-radius: 500px;
+  border: 2px solid #fcfcfceb;
+}
+.exe:hover{
+	background-color: rgba(245, 245, 245, 0.416);
+	width: 220px;
+	color: #342E37;
+	height: 220px;
+	margin: 20px;
+	border-radius: 80px;
+  border: 2px solid #fcfcfceb;
+  transition: 200ms;
+}
+.body{
+	align-content: center;
+	margin: 50px;
+	
+	display: flex;
+	justify-content: center;
+}
+.exe1{
+	margin: 5px;
+	background-color:transparent;
+	border-radius: 6px;
+    border: 2px solid #fcfcfceb;
+}
+.exe1::marker{
+	background-color: #09bb21;
+}
+
+.popup {
+	padding: 20px;
+    width: 200px;
+    background-color: rgba(62, 61, 61, 0.896);
+    border-radius: 6px;
+    position: absolute;
+	left: 42%;
+    top: 38%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    align-content: stretch;
+	visibility: hidden;
+	
+}
+.popup-op {
+	padding: 20px;
+    width: 290px;
+    background-color: rgba(62, 61, 61, 0.896);
+    border-radius: 6px;
+    position: absolute;
+	left: 38%;
+    top: 38%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    align-content: stretch;
+	visibility: visible;
+	
+}
+.poph {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.popup1 {
+	padding: 20px;
+    
+    background-color: rgba(62, 61, 61, 0.896);
+    border-radius: 6px;
+    position: absolute;
+	left: 30%;
+    top: 25%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    align-content: stretch;
+	visibility: hidden;
+	
+}
+.popup1-op {
+	padding: 20px;
+    
+    background-color: rgba(61, 62, 61, 0.896);
+    border-radius: 6px;
+    position: absolute;
+	left: 30%;
+    top: 25%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    align-content: stretch;
+	visibility: visible;
+	
+}
+.cancel{
+	visibility: hidden;
+}
+
+.filter1{
+	display: flex;
+	justify-content: space-between;
+}
+.s5{
+font-size: 160%;
+}
+/* bmi meter */
+
+
+:root {
+  --underweight: orange;
+  --normal: green;
+  --overweight: lightcoral;
+  --obese: crimson;
+}
+
+
+.container-bmi {
+    width: 90%;
+    max-width: 420px;
+    background: var(--light);
+    padding: 1rem;
+    border-radius: 6px;
+    
+    display: grid;
+    gap: 1rem;
+    position: relative;
+    left: 30%;
+    margin-top: 20px;
+	border-color: transparent;
+}
+
+.calculator {
+  display: grid;
+  gap: 1rem;
+}
+
+.calculator div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.calculator label {
+  flex: 0 1 120px;
+  font-weight: 600;
+}
+
+.calculator input {
+  color: black;
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  outline-color: #555;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.calculator button {
+  width: 50%;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  background: #ffffffbe;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.calculator button[type="reset"] {
+  background: #44444479;
+}
+
+.calculator button:hover {
+  background-color: transparent;
+}
+
+.output {
+  text-align: center;
+}
+
+.output #bmi {
+  font-size: 4rem;
+}
+
+.output #desc strong {
+  text-transform: uppercase;
+}
+
+.bmi-scale {
+  display: flex;
+}
+
+.bmi-scale div {
+  flex: 1;
+  text-align: center;
+  text-transform: uppercase;
+  border-top: 5px solid var(--color);
+  padding: 10px;
+}
+
+.bmi-scale h4 {
+  font-size: 0.75rem;
+  color: slategray;
+}
+
+.underweight {
+  color: var(--underweight);
+}
+
+.healthy {
+  color: var(--normal);
+}
+
+.overweight {
+  color: var(--overweight);
+}
+
+.obese {
+  color: var(--obese);
 }
