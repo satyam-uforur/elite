@@ -29,21 +29,21 @@ app.get("/signup", (req, res) => {
     msg1=false
     res.render("signup",{msg1});
 });
-function hom(combcheck,check){
+function hom(combcheck){
 app.get("/home", (req, res) => {
     res.render("home",{combcheck});
 });
 app.get("/store", (req, res) => {
-    res.render("store",{check});
+    res.render("store",{combcheck});
 });
 app.get("/bmi", (req, res) => {
-    res.render("bmi",{check});
+    res.render("bmi",{combcheck});
 });
 app.get("/diet", (req, res) => {
-    res.render("diet",{check});
+    res.render("diet",{combcheck});
 });
 app.get("/contact", (req, res) => {
-    res.render("contact",{check});
+    res.render("contact",{combcheck});
 });
 
 }
@@ -105,7 +105,7 @@ app.post("/login", async (req, res) => {
 
         }
         else {
-            hom(combcheck,check);
+            hom(combcheck);
             res.render("home",{combcheck});
         }
     }
