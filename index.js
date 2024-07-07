@@ -15,6 +15,7 @@ app.set("view engine", "ejs");
 
 let msg=false;
 let msg1=false;
+let var1=0;
 app.get("/", (req, res) => {
     res.render("index");
 });
@@ -28,10 +29,24 @@ app.get("/signup", (req, res) => {
     msg1=false
     res.render("signup",{msg1});
 });
-
+function hom(combcheck,check){
 app.get("/home", (req, res) => {
-    res.render("home");
+    res.render("home",{combcheck});
 });
+app.get("/store", (req, res) => {
+    res.render("store",{check});
+});
+app.get("/bmi", (req, res) => {
+    res.render("bmi",{check});
+});
+app.get("/diet", (req, res) => {
+    res.render("diet",{check});
+});
+app.get("/contact", (req, res) => {
+    res.render("contact",{check});
+});
+
+}
   
 
 // Register User
@@ -64,7 +79,10 @@ app.post("/login", async (req, res) => {
             det:"false"
         }
         const check = await collection.findOne({ name: req.body.username });
-        console.log(check.password);
+        const use1 = await collection.find().limit(10);
+        const combcheck = [check,...use1]
+        
+        ;
         if (!check) {
             res.send("User name cannot found")
         }
@@ -84,9 +102,11 @@ app.post("/login", async (req, res) => {
         if (!isPasswordMatch()) {
             msg=true
             res.render("login",{msg});
+
         }
         else {
-            res.render("home",{check});
+            hom(combcheck,check);
+            res.render("home",{combcheck});
         }
     }
     catch {
